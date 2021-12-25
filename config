@@ -17,7 +17,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:monospace 10
+font pango:monospace 12
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -34,7 +34,7 @@ font pango:monospace 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec xfce4-terminal
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -44,7 +44,7 @@ bindsym $mod+Shift+q kill
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+space exec --no-startup-id rofi -modi drun -show drun
 
 # change focus
 bindsym $mod+j focus left
@@ -88,7 +88,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $mod+d focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -175,13 +175,14 @@ bar {
 }
 
 # Start compton composite manager (if needed)
-# exec compton
+exec compton
 
 # Start redshift
-exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id redshift -c ~/.config/redshift/redshift.conf
 
 ### Multimedia configuration
 # Volume adjustment
+exec --no-startup-id amixer
 bindsym XF86AudioRaiseVolume exec amixer -D pulse sset Master 5%+
 bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
@@ -215,7 +216,4 @@ mode "$mode_system" {
     bindsym Escape mode "default"
 }
 
-bindsym $mod+Pause mode "$mode_system"
-
-# Run dropbox on startup
-exec --no-startup-id dropbox start
+bindsym $mod+End mode "$mode_system"
