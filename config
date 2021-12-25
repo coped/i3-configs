@@ -188,8 +188,8 @@ bindsym XF86AudioLowerVolume exec amixer -D pulse sset Master 5%-
 bindsym XF86AudioMute exec amixer -D pulse sset Master toggle
 
 # Brightness adjustment 
-bindsym XF86MonBrightnessUp exec brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +2.5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 2.5%-
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
